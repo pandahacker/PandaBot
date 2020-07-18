@@ -48,7 +48,7 @@ module.exports = {
       connection: null,
       songs: [],
       loop: false,
-      volume: 100,
+      volume: 50,
       playing: true
     };
 
@@ -83,7 +83,6 @@ module.exports = {
         return message.reply("There was an error playing that Soundcloud track.").catch(console.error);
       }
     } else if (mp3Regex.test(url)) {
-
       var res = url.replace(/^(([a-z]+:)?(\/\/)?[^\/]+)./g, "").replace(/%20/g, " ").replace(/%26/g, "&").slice(0, -4);
         song = {
           title: res,

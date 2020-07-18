@@ -23,7 +23,7 @@ module.exports = {
         // Edit: the code below is now my "workaround" until the issue is fixed.
 
         stream = ytdl(song.url, {
-          quality: [128, 127, 120, 96, 95, 94, 93],
+          quality: [140, 128, 127, 120, 96, 95, 94, 93],
           opusEncoded: false,
           fmt: "mp3",
           encoderArgs: ['-af', 'bass=g=10,dynaudnorm=f=200']
