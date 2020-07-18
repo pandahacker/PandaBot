@@ -1,7 +1,7 @@
 /config.json
 /.idea
 /.vscode
-
+mp3/
 # Logs
 logs
 *.log

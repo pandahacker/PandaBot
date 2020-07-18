@@ -36,7 +36,9 @@ module.exports = {
         stream = await scdl.downloadFromURL(opus[0].url, SOUNDCLOUD_CLIENT_ID);
       } else if (song.url.includes("mp3" || "m4a")) {
 
-        stream = song.url;
+        message.channel.send(`mp3 file recognized`);
+
+        stream = fs.createReadStream(`./mp3/${song.url}`);
 
       }
     } catch (error) {
@@ -56,7 +58,7 @@ module.exports = {
     //console.log(type);
 
     const dispatcher = queue.connection
-      .play(stream, { type: "unknown" })
+      .play(stream)
       .on("finish", () => {
         if (collector && !collector.ended) collector.stop();
 

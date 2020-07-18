@@ -33,7 +33,8 @@ module.exports = {
     const videoPattern = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/gi;
     const playlistPattern = /^.*(list=)([^#\&\?]*).*/gi;
     const scRegex = /^https?:\/\/(soundcloud\.com)\/(.*)$/;
-    const mp3Regex = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\bmp3/g;
+    //const mp3Regex = /[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\bmp3/g;
+    const mp3Regex = /[?a-zA-Z0-9@:%._\-\+~#=]{2,256}\bmp3/g
     const url = args[0];
     const urlValid = videoPattern.test(args[0]);
 
@@ -83,7 +84,7 @@ module.exports = {
         return message.reply("There was an error playing that Soundcloud track.").catch(console.error);
       }
     } else if (mp3Regex.test(url)) {
-      var res = url.replace(/^(([a-z]+:)?(\/\/)?[^\/]+)./g, "").replace(/%20/g, " ").replace(/%26/g, "&").slice(0, -4);
+      var res = url.slice(0, -4);
         song = {
           title: res,
           url: url
